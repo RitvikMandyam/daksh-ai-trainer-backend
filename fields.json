@@ -1,0 +1,590 @@
+{
+  "schema": {
+    "username": {
+      "type": "string",
+      "title": "Username",
+      "required": "true"
+    },
+    "type_of_case": {
+      "type": "string",
+      "title": "Type of case",
+      "enum": [
+        "Civil",
+        "Criminal",
+        "Both",
+        "Cannot ascertain"
+      ],
+      "required": "true"
+    },
+    "court_type": {
+      "type": "string",
+      "title": "Court type",
+      "enum": [
+        "Supreme Court",
+        " High Court",
+        " Civil Judge",
+        " Metropolitan/Judicial Magistrate",
+        " District and Sessions Judge",
+        "Small Causes Court"
+      ],
+      "required": "true"
+    },
+    "number_of_judges": {
+      "type": "string",
+      "title": "Number of judges",
+      "enum": [
+        "One",
+        "Two",
+        "Three",
+        "Five",
+        "Seven",
+        "Ten or more"
+      ],
+      "required": "true"
+    },
+    "order_or_judgment": {
+      "type": "string",
+      "title": "Order or judgment",
+      "enum": [
+        "Order",
+        "Judgment"
+      ],
+      "required": "true"
+    },
+    "appeal_case": {
+      "type": "string",
+      "title": "Appeal case",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "which_court_is_the_appeal_from": {
+      "type": "string",
+      "title": "Which court is the appeal from?",
+      "enum": [
+        "Civil Judge",
+        "Small Causes Court",
+        "Metropolitan/Judicial Magistrate",
+        "District and Sessions Judge",
+        "High Court"
+      ],
+      "required": "true"
+    },
+    "is_this_case_a_revision": {
+      "type": "string",
+      "title": "Is this case a revision?",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "is_this_case_a_review": {
+      "type": "string",
+      "title": "Is this case a review?",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "is_this_a_writ_petition": {
+      "type": "string",
+      "title": "Is this a Writ Petition?",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "if_the_case_has_come_from_a_lower_court_what_did_this_court_say_regarding_the_lower_court_judgment": {
+      "type": "string",
+      "title": "If the case has come from a lower court, what did this court say regarding the lower court judgment?",
+      "enum": [
+        "Reversed the judgment",
+        "Modified the judgment",
+        "Upheld the judgment",
+        "Partly upheld the judgment",
+        "Not applicable"
+      ],
+      "required": "true"
+    },
+    "what_is_the_date_of_filing_for_this_case": {
+      "type": "string",
+      "format": "date",
+      "title": "What is the date of filing for this case?",
+      "required": "true"
+    },
+    "what_is_the_date_of_disposal_of_the_case": {
+      "type": "string",
+      "title": "What is the date of disposal of the case?",
+      "required": "true"
+    },
+    "what_is_the_case_type": {
+      "type": "string",
+      "title": "What is the case type?",
+      "required": "true"
+    },
+    "what_is_the_combined_case_number": {
+      "type": "string",
+      "title": "What is the combined case number?",
+      "required": "true"
+    },
+    "what_is_the_name_of_the_court": {
+      "type": "string",
+      "title": "What is the name of the court?",
+      "required": "true"
+    },
+    "name_of_court_state": {
+      "type": "string",
+      "title": "Name of court state",
+      "enum": [
+        "Andaman & Nicobar",
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chandigarh",
+        "Chhattisgarh",
+        "Dadra & Nagar Haveli",
+        "Daman & Diu",
+        "Delhi",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jammu & Kashmir",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Lakshadweep",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Orissa",
+        "Pondicherry",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttaranchal",
+        "West Bengal"
+      ],
+      "required": "true"
+    },
+    "petitioners": {
+      "type": "array",
+      "title": "Petitioners",
+      "required": "true",
+      "items": {
+        "type": "object",
+        "title": "Petitioner",
+        "properties": {
+          "name_of_petitioner": {
+            "type": "string",
+            "title": "Name of petitioner"
+          },
+          "age_of_petitioner": {
+            "type": "string",
+            "title": "Age of petitioner",
+            "enum": [
+              "0 - 20 years",
+              "20 - 30 years",
+              "40 - 50 years",
+              "50 - 60 years",
+              "70 - 80 years",
+              "90 - 100 years"
+            ]
+          },
+          "gender_of_petitioner": {
+            "type": "string",
+            "title": "Gender of petitioner",
+            "enum": [
+              "Male",
+              "Female",
+              "Other",
+              "Not applicable"
+            ]
+          },
+          "address_of_petitioner": {
+            "type": "string",
+            "title": "Address of petitioner"
+          },
+          "lawyer_of_petitioner": {
+            "type": "string",
+            "title": "Lawyer of petitioner"
+          },
+          "petitioner_type": {
+            "type": "string",
+            "title": "Petitioner type",
+            "enum": [
+              "Individual",
+              "Private Company",
+              "Government Company",
+              "State Government",
+              "Central Government",
+              "Central Government Ministry or Department",
+              "State Government Ministry or Department",
+              "Central Government Agency",
+              "State Government Agency",
+              "Educational institute",
+              "Bank",
+              "Insurance company",
+              "Real estate developer",
+              "Partnership or sole proprietorship",
+              "Trust or society",
+              "Hindu Undivided Family"
+            ]
+          }
+        }
+      }
+    },
+    "respondents": {
+      "type": "array",
+      "title": "Respondents",
+      "required": "true",
+      "items": {
+        "type": "object",
+        "title": "Petitioner",
+        "properties": {
+          "name_of_respondent": {
+            "type": "string",
+            "title": "Name of respondent"
+          },
+          "age_of_respondent": {
+            "type": "string",
+            "title": "Age of respondent",
+            "enum": [
+              "0 - 20 years",
+              "20 - 30 years",
+              "40 - 50 years",
+              "50 - 60 years",
+              "70 - 80 years",
+              "90 - 100 years"
+            ]
+          },
+          "gender_of_respondent": {
+            "type": "string",
+            "title": "Gender of respondent",
+            "enum": [
+              "Male",
+              "Female",
+              "Other",
+              "Not applicable"
+            ]
+          },
+          "address_of_respondent": {
+            "type": "string",
+            "title": "Address of respondent"
+          },
+          "lawyer_of_respondent": {
+            "type": "string",
+            "title": "Lawyer of respondent"
+          },
+          "respondent_type": {
+            "type": "string",
+            "title": "Respondent type",
+            "enum": [
+              "Individual",
+              "Private Company",
+              "Government Company",
+              "State Government",
+              "Central Government",
+              "Central Government Ministry or Department",
+              "State Government Ministry or Department",
+              "Central Government Agency",
+              "State Government Agency",
+              "Educational institute",
+              "Bank",
+              "Insurance company",
+              "Real estate developer",
+              "Partnership or sole proprietorship",
+              "Trust or society",
+              "Hindu Undivided Family"
+            ]
+          }
+        }
+      }
+    },
+    "gender_of_victim_of_crime": {
+      "type": "string",
+      "title": "Gender of victim of crime",
+      "enum": [
+        "Male",
+        "Female",
+        "Other",
+        "Not applicable"
+      ],
+      "required": "true"
+    },
+    "government_governmental_body_is_a_party_to_the_case": {
+      "type": "string",
+      "title": "Government/governmental body is a party to the case",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "what_party_is_the_government_governmental_body": {
+      "type": "string",
+      "title": "What party is the government/governmental body?",
+      "enum": [
+        "Petitioner/Appellant",
+        "Respondent",
+        "Both",
+        "N/A"
+      ],
+      "required": "true"
+    },
+    "name_of_the_act_and_section": {
+      "type": "string",
+      "title": "Name of the Act and Section",
+      "required": "true"
+    },
+    "subject_matter": {
+      "type": "string",
+      "title": "Subject matter",
+      "enum": [
+        "Land and property",
+        "Recovery of money",
+        "Crime",
+        "Family and personal laws",
+        "Environment and wildlife",
+        "Motor vehicles",
+        "Consumer protection",
+        "Insurance",
+        "Labour, employment and service",
+        "Education",
+        "Intellectual property",
+        "Corruption",
+        "Contempt",
+        "Arbitration",
+        "Execution",
+        "Elections",
+        "Tax",
+        "Compliance by companies",
+        "Land acquisition",
+        "Negotiable instruments",
+        "Domestic violence",
+        "Information technology and cyber security",
+        "Public Health",
+        "Human and civil rights",
+        "Mines and minerals",
+        "Competition law",
+        "Securities law",
+        "Advocates",
+        "Tort law",
+        "Constitution",
+        "Other"
+      ],
+      "required": "true"
+    },
+    "if_crime_then_nature_of_crime": {
+      "type": "string",
+      "title": "If crime, then nature of crime",
+      "enum": [
+        "Abetment",
+        "Assault",
+        "Attempt to commit an offence",
+        "Cheating",
+        "Corruption",
+        "Crimes against children",
+        "Crimes against women",
+        "Crimes against members of Scheduled Castes/ Scheduled Tribes",
+        "Crimes relating to marriage",
+        "Crimes relating to narcotic drugs and psychotropic substances",
+        "Criminal conspiracy",
+        "Criminal contempt",
+        "Criminal breach of trust",
+        "Criminal force",
+        "Criminal intimidation",
+        "Criminal negligence",
+        "Culpable homicide not amounting to murder",
+        "Defamation",
+        "Dishonour of cheque",
+        "Extortion",
+        "Economic offences",
+        "Food adulteration",
+        "Forgery",
+        "Giving and fabrication of false evidence",
+        "Hurt/Grievous Hurt",
+        "Kidnapping/Abduction",
+        "Misappropriation of property",
+        "Money laundering",
+        "Murder",
+        "Offences by companies",
+        "Public Nuisance",
+        "Robbery/Dacoity",
+        "Sexual offences",
+        "Terrorism and Organised Crime",
+        "Theft",
+        "Unlawful assembly",
+        "Other"
+      ],
+      "required": "true"
+    },
+    "type_of_criminal_case": {
+      "type": "string",
+      "title": "Type of criminal case",
+      "enum": [
+        "summons case",
+        "warrant case",
+        "bailable offence",
+        "non-bailable offence"
+      ],
+      "required": "true"
+    },
+    "has_the_case_contested_any_fundamental_right": {
+      "type": "string",
+      "title": "Has the case contested any fundamental right",
+      "enum": [
+        "No",
+        "Right to equality",
+        "Right to freedom",
+        "Right against exploitation",
+        "Right to freedom of religion",
+        "Cultural and educational rights",
+        "Right to constitutional remedies",
+        "Right to education"
+      ],
+      "required": "true"
+    },
+    "decision_in_favor_of": {
+      "type": "string",
+      "title": "Decision in favor of",
+      "enum": [
+        "Plaintiff/Petitioner",
+        "Respondent",
+        "Accused",
+        "Appellant"
+      ],
+      "required": "true"
+    },
+    "costs_imposed": {
+      "type": "string",
+      "title": "Costs imposed",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": "true"
+    },
+    "monetary_amount_claimed": {
+      "type": "string",
+      "title": "Monetary amount claimed",
+      "enum": [
+        "0 - Rs.3,00,000",
+        "Rs.3,00,001 - 6,00,000",
+        "Rs.6,00,001 - 9,00,000",
+        "Rs.9,00,001 - 12,00,000",
+        "Rs.12,00,001 - 15,00,000",
+        "Rs.15,00,001 - 20,00,000",
+        "Rs.20,00,001 - 25,00,000",
+        "Rs.25,00,001 - 30,00,000",
+        "Rs.30,00,001 - 35,00,000",
+        "Rs.35,00,001 - 40,00,000",
+        "Rs.40,00,001 - 45,00,000",
+        "Rs.45,00,001 - 50,00,000",
+        "Rs.50,00,000 and above",
+        "Not applicable"
+      ],
+      "required": "true"
+    },
+    "monetary_amount_granted": {
+      "type": "string",
+      "title": "Monetary amount granted",
+      "enum": [
+        "0 - Rs.3,00,000",
+        "Rs.3,00,001 - 6,00,000",
+        "Rs.6,00,001 - 9,00,000",
+        "Rs.9,00,001 - 12,00,000",
+        "Rs.12,00,001 - 15,00,000",
+        "Rs.15,00,001 - 20,00,000",
+        "Rs.20,00,001 - 25,00,000",
+        "Rs.25,00,001 - 30,00,000",
+        "Rs.30,00,001 - 35,00,000",
+        "Rs.35,00,001 - 40,00,000",
+        "Rs.40,00,001 - 45,00,000",
+        "Rs.45,00,001 - 50,00,000",
+        "Rs.50,00,000 and above",
+        "Not applicable"
+      ],
+      "required": "true"
+    },
+    "number_of_witnesses_examined": {
+      "type": "string",
+      "title": "Number of witnesses examined",
+      "required": "true"
+    },
+    "did_the_case_have_oral_evidence": {
+      "type": "string",
+      "title": "Did the case have oral evidence?",
+      "enum": [
+        "Yes",
+        "No",
+        "Cannot say"
+      ],
+      "required": "true"
+    },
+    "did_the_case_have_written_evidence": {
+      "type": "string",
+      "title": "Did the case have written evidence?",
+      "enum": [
+        "Yes",
+        "No",
+        "Cannot say"
+      ],
+      "required": "true"
+    },
+    "number_of_precedents_cited": {
+      "type": "string",
+      "title": "Number of precedents cited",
+      "required": "true"
+    },
+    "ratio_of_quoted_text": {
+      "type": "string",
+      "title": "Ratio of Quoted Text",
+      "required": "true"
+    },
+    "type_of_punishment_given_by_the_court": {
+      "type": "string",
+      "title": "Type of punishment given by the court",
+      "enum": [
+        "fine; forfeiture of property; imprisonment for 24 hours - up to 3 years",
+        " 3 years - up to 5 years",
+        " 5 years - up to 7 years",
+        " 7 years - up to 10 years",
+        " above 10 years",
+        "life; death penalty"
+      ]
+    },
+    "compensation_awarded": {
+      "type": "string",
+      "title": "Compensation awarded",
+      "enum": [
+        "0 - Rs.3,00,000",
+        "Rs.3,00,001 - 6,00,000",
+        "Rs.6,00,001 - 9,00,000",
+        "Rs.9,00,001 - 12,00,000",
+        "Rs.12,00,001 - 15,00,000",
+        "Rs.15,00,001 - 20,00,000",
+        "Rs.20,00,001 - 25,00,000",
+        "Rs.25,00,001 - 30,00,000",
+        "Rs.30,00,001 - 35,00,000",
+        "Rs.35,00,001 - 40,00,000",
+        "Rs.40,00,001 - 45,00,000",
+        "Rs.45,00,001 - 50,00,000",
+        "Rs.50,00,000 and above",
+        "Not applicable"
+      ]
+    }
+  }
+}

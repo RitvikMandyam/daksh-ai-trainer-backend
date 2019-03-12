@@ -1,0 +1,75 @@
+<!doctype html>
+<head>
+    <title> View records </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="../static/vendor/jsonform/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap-table/bootstrap-table.min.css"/>
+    <style type="text/css">
+        #records-display {
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+<label for="username-select">Username: </label>
+<select id="username-select" class="form-control">
+    {% for username in usernames %}
+    <option>{{ username }}</option>
+    {% endfor %}
+</select>
+<table id="records-display"></table>
+<script src="../static/vendor/jsonform/deps/jquery.min.js"></script>
+<script src="../static/vendor/bootstrap-table/popper.min.js"></script>
+<script src="../static/vendor/bootstrap-table/bootstrap.min.js"></script>
+<script src="../static/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script>
+    let fields = {};
+    $.getJSON('http://localhost:6900', function (data) {
+        fields = data['schema'];
+    });
+    $(document).ready(function () {
+        updateTable(false);
+    });
+    $('#username-select').change(function (_) {
+        updateTable(true);
+    });
+
+    function updateTable(shouldUpdateTable) {
+        $.post('http://localhost:6900/view-cases', {username: $('#username-select').val()}, function (data) {
+            const columns = [];
+            data.forEach(function (record) {
+                Object.keys(record).forEach(function (key) {
+                    if (columns.indexOf(key) < 0) {
+                        columns.push({'title': fields[key]['title'], 'field': key});
+                    }
+                });
+            });
+            const table = $('#records-display');
+            if (shouldUpdateTable) {
+                table.bootstrapTable('load', data)
+            } else {
+                table.bootstrapTable({
+                    columns: columns,
+                    data: data,
+                    toggle: 'bootstrap-table',
+                    classes: 'table table-bordered table-hover table-striped'
+                })
+            }
+
+            table.find('tr').click(function (e) {
+                table.find('tr').each(function () {
+                    $(this).find('td').each(function () {
+                        if (this.innerHTML.includes('<input') && this !== e.target && this !== e.target.parentNode) {
+                            this.innerHTML = this.childNodes[0].value;
+                        }
+                    });
+                });
+                $(e.target).append('<input type=\'text\' value=\'' + e.target.innerHTML + '\'>');
+                $(e.target).find('input').focus();
+                e.target.removeChild(e.target.childNodes[0]);
+            })
+
+        }, 'json')
+    }
+</script>
+</body>
