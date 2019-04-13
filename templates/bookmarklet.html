@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>AI Classifier</title>
     <link rel="stylesheet" type="text/css" href="../static/vendor/jsonform/deps/opt/bootstrap.css"/>
+    <style type="text/css">
+        body {
+            margin: 16px;
+        }
+    </style>
 </head>
 <body>
 <form></form>
@@ -26,35 +31,44 @@
 <script src="../static/vendor/jsonform/lib/jsonform.js"></script>
 
 <script type="text/javascript">
+    JSONForm.fieldTypes['contingentstrings'] = {
+        template: '<div><input type="text" name="<%=node.name%>"><input type="text" name="<%=node.schemaElement.contingent.name%>"></div>',
+        fieldtemplate: true,
+        inputfield: true,
+        onBeforeRender: function(data, node) {
+            console.log(node);
+        }
+    };
+
     $.getJSON('http://localhost:6900', function (data) {
         $('form').jsonForm({
             schema: data['schema'],
             form:
-            ["username"].concat(
-                Object.keys(data['schema']).filter(function (el) {
-                    return el !== 'petitioners' && el !== 'respondents' && el !== 'username';
-                })
-            ).concat([
-                {
-                    type: "fieldset",
-                    title: "Petitioners and Respondents - Required (Click to expand)",
-                    expandable: "true",
-                    items: [
-                        "petitioners",
-                        "respondents"
-                    ]
-                },
-                {
-                    "type": "submit",
-                    "title": "Submit"
-                }
-            ]),
+                ["username"].concat(
+                    Object.keys(data['schema']).filter(function (el) {
+                        return el !== 'petitioners' && el !== 'respondents' && el !== 'username';
+                    })
+                ).concat([
+                    {
+                        type: "fieldset",
+                        title: "Petitioners and Respondents - Required (Click to expand)",
+                        expandable: "true",
+                        items: [
+                            "petitioners",
+                            "respondents"
+                        ]
+                    },
+                    {
+                        "type": "submit",
+                        "title": "Submit"
+                    }
+                ]),
             onSubmit: function (errors, values) {
                 if (errors) {
                     alert('There are invalid values in the form. Please ensure that the date fields actually contain dates.')
                 } else {
                     values.origin_url = window.location.href;
-                    $.post('http://localhost:6900', 'data=' + encodeURIComponent(JSON.stringify(values)), function(data) {
+                    $.post('http://localhost:6900', 'data=' + encodeURIComponent(JSON.stringify(values)), function (data) {
                         console.log(data);
                     }, 'json')
                 }

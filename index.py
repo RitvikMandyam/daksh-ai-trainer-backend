@@ -5,6 +5,7 @@ from flask_cors import CORS
 from tinydb import TinyDB, Query
 
 app = Flask(__name__, static_url_path='/static')
+app.config['JSON_SORT_KEYS'] = False
 CORS(app)
 db = TinyDB('./data.json')
 
@@ -39,4 +40,4 @@ def serve_bookmarklet():
     return render_template('bookmarklet.html')
 
 
-app.run(port=6900)
+app.run(host='0.0.0.0', port=6900)

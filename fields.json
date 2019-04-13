@@ -3,7 +3,7 @@
     "username": {
       "type": "string",
       "title": "Username",
-      "required": "true"
+      "required": true
     },
     "type_of_case": {
       "type": "string",
@@ -14,7 +14,7 @@
         "Both",
         "Cannot ascertain"
       ],
-      "required": "true"
+      "required": true
     },
     "court_type": {
       "type": "string",
@@ -27,7 +27,7 @@
         " District and Sessions Judge",
         "Small Causes Court"
       ],
-      "required": "true"
+      "required": true
     },
     "number_of_judges": {
       "type": "string",
@@ -40,7 +40,7 @@
         "Seven",
         "Ten or more"
       ],
-      "required": "true"
+      "required": true
     },
     "order_or_judgment": {
       "type": "string",
@@ -49,7 +49,7 @@
         "Order",
         "Judgment"
       ],
-      "required": "true"
+      "required": true
     },
     "appeal_case": {
       "type": "string",
@@ -58,7 +58,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "which_court_is_the_appeal_from": {
       "type": "string",
@@ -70,7 +70,7 @@
         "District and Sessions Judge",
         "High Court"
       ],
-      "required": "true"
+      "required": true
     },
     "is_this_case_a_revision": {
       "type": "string",
@@ -79,7 +79,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "is_this_case_a_review": {
       "type": "string",
@@ -88,7 +88,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "is_this_a_writ_petition": {
       "type": "string",
@@ -97,7 +97,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "if_the_case_has_come_from_a_lower_court_what_did_this_court_say_regarding_the_lower_court_judgment": {
       "type": "string",
@@ -109,33 +109,32 @@
         "Partly upheld the judgment",
         "Not applicable"
       ],
-      "required": "true"
+      "required": true
     },
     "what_is_the_date_of_filing_for_this_case": {
-      "type": "string",
-      "format": "date",
+      "type": "date",
       "title": "What is the date of filing for this case?",
-      "required": "true"
+      "required": true
     },
     "what_is_the_date_of_disposal_of_the_case": {
-      "type": "string",
+      "type": "date",
       "title": "What is the date of disposal of the case?",
-      "required": "true"
+      "required": true
     },
     "what_is_the_case_type": {
       "type": "string",
       "title": "What is the case type?",
-      "required": "true"
+      "required": true
     },
     "what_is_the_combined_case_number": {
       "type": "string",
       "title": "What is the combined case number?",
-      "required": "true"
+      "required": true
     },
     "what_is_the_name_of_the_court": {
       "type": "string",
       "title": "What is the name of the court?",
-      "required": "true"
+      "required": true
     },
     "name_of_court_state": {
       "type": "string",
@@ -177,12 +176,12 @@
         "Uttaranchal",
         "West Bengal"
       ],
-      "required": "true"
+      "required": true
     },
     "petitioners": {
       "type": "array",
       "title": "Petitioners",
-      "required": "true",
+      "required": true,
       "items": {
         "type": "object",
         "title": "Petitioner",
@@ -249,10 +248,10 @@
     "respondents": {
       "type": "array",
       "title": "Respondents",
-      "required": "true",
+      "required": true,
       "items": {
         "type": "object",
-        "title": "Petitioner",
+        "title": "Respondent",
         "properties": {
           "name_of_respondent": {
             "type": "string",
@@ -322,7 +321,7 @@
         "Other",
         "Not applicable"
       ],
-      "required": "true"
+      "required": true
     },
     "government_governmental_body_is_a_party_to_the_case": {
       "type": "string",
@@ -331,7 +330,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "what_party_is_the_government_governmental_body": {
       "type": "string",
@@ -342,120 +341,136 @@
         "Both",
         "N/A"
       ],
-      "required": "true"
+      "required": true
     },
     "name_of_the_act_and_section": {
-      "type": "string",
-      "title": "Name of the Act and Section",
-      "required": "true"
+      "type": "array",
+      "title": "Name(s) of the Act(s) and Section(s)",
+      "items": {
+        "title": "Act/Section",
+        "type": "string"
+      },
+      "required": true
     },
     "subject_matter": {
-      "type": "string",
-      "title": "Subject matter",
-      "enum": [
-        "Land and property",
-        "Recovery of money",
-        "Crime",
-        "Family and personal laws",
-        "Environment and wildlife",
-        "Motor vehicles",
-        "Consumer protection",
-        "Insurance",
-        "Labour, employment and service",
-        "Education",
-        "Intellectual property",
-        "Corruption",
-        "Contempt",
-        "Arbitration",
-        "Execution",
-        "Elections",
-        "Tax",
-        "Compliance by companies",
-        "Land acquisition",
-        "Negotiable instruments",
-        "Domestic violence",
-        "Information technology and cyber security",
-        "Public Health",
-        "Human and civil rights",
-        "Mines and minerals",
-        "Competition law",
-        "Securities law",
-        "Advocates",
-        "Tort law",
-        "Constitution",
-        "Other"
-      ],
-      "required": "true"
+      "type": "checkboxes",
+      "title": "Subject matter(s)",
+      "items": {
+        "type": "string",
+        "title": "Subject matter",
+        "enum": [
+          "Land and property",
+          "Recovery of money",
+          "Crime",
+          "Family and personal laws",
+          "Environment and wildlife",
+          "Motor vehicles",
+          "Consumer protection",
+          "Insurance",
+          "Labour, employment and service",
+          "Education",
+          "Intellectual property",
+          "Corruption",
+          "Contempt",
+          "Arbitration",
+          "Execution",
+          "Elections",
+          "Tax",
+          "Compliance by companies",
+          "Land acquisition",
+          "Negotiable instruments",
+          "Domestic violence",
+          "Information technology and cyber security",
+          "Public Health",
+          "Human and civil rights",
+          "Mines and minerals",
+          "Competition law",
+          "Securities law",
+          "Advocates",
+          "Tort law",
+          "Constitution",
+          "Other"
+        ]
+      },
+      "required": true
     },
     "if_crime_then_nature_of_crime": {
-      "type": "string",
-      "title": "If crime, then nature of crime",
-      "enum": [
-        "Abetment",
-        "Assault",
-        "Attempt to commit an offence",
-        "Cheating",
-        "Corruption",
-        "Crimes against children",
-        "Crimes against women",
-        "Crimes against members of Scheduled Castes/ Scheduled Tribes",
-        "Crimes relating to marriage",
-        "Crimes relating to narcotic drugs and psychotropic substances",
-        "Criminal conspiracy",
-        "Criminal contempt",
-        "Criminal breach of trust",
-        "Criminal force",
-        "Criminal intimidation",
-        "Criminal negligence",
-        "Culpable homicide not amounting to murder",
-        "Defamation",
-        "Dishonour of cheque",
-        "Extortion",
-        "Economic offences",
-        "Food adulteration",
-        "Forgery",
-        "Giving and fabrication of false evidence",
-        "Hurt/Grievous Hurt",
-        "Kidnapping/Abduction",
-        "Misappropriation of property",
-        "Money laundering",
-        "Murder",
-        "Offences by companies",
-        "Public Nuisance",
-        "Robbery/Dacoity",
-        "Sexual offences",
-        "Terrorism and Organised Crime",
-        "Theft",
-        "Unlawful assembly",
-        "Other"
-      ],
-      "required": "true"
+      "type": "checkboxes",
+      "title": "If crime, then nature(s) of crime",
+      "items": {
+        "type": "string",
+        "title": "Nature of crime",
+        "enum": [
+          "Abetment",
+          "Assault",
+          "Attempt to commit an offence",
+          "Cheating",
+          "Crimes against members of Scheduled Castes/Scheduled Tribes",
+          "Crimes relating to narcotic drugs and psychotropic substances",
+          "Criminal conspiracy",
+          "Criminal breach of trust",
+          "Criminal force",
+          "Criminal intimidation",
+          "Criminal negligence",
+          "Culpable homicide not amounting to murder",
+          "Defamation",
+          "Dowry harassment",
+          "Extortion",
+          "Food adulteration",
+          "Forgery",
+          "Giving and fabrication of false evidence",
+          "Hurt/Grievous Hurt",
+          "Kidnapping/Abduction",
+          "Misappropriation of property",
+          "Money laundering",
+          "Murder",
+          "Offences by companies",
+          "Public nuisance",
+          "Robbery/Dacoity",
+          "Sexual offences",
+          "Sexual offences against children",
+          "Sexual offences against women",
+          "Terrorism and organised crime",
+          "Theft",
+          "Unlawful assembly",
+          "Other"
+        ]
+      },
+      "required": true
     },
     "type_of_criminal_case": {
-      "type": "string",
-      "title": "Type of criminal case",
-      "enum": [
-        "summons case",
-        "warrant case",
-        "bailable offence",
-        "non-bailable offence"
-      ],
-      "required": "true"
+      "type": "checkboxes",
+      "title": "Type(s) of criminal case",
+      "items": {
+        "type": "string",
+        "title": "Type of criminal case",
+        "enum": [
+          "summons case",
+          "warrant case",
+          "bailable offence",
+          "non-bailable offence"
+        ]
+      },
+      "required": true
     },
     "has_the_case_contested_any_fundamental_right": {
-      "type": "string",
-      "title": "Has the case contested any fundamental right",
-      "enum": [
-        "No",
-        "Right to equality",
-        "Right to freedom",
-        "Right against exploitation",
-        "Right to freedom of religion",
-        "Cultural and educational rights",
-        "Right to constitutional remedies",
-        "Right to education"
-      ],
-      "required": "true"
+      "type": "checkboxes",
+      "title": "Has the case contested any fundamental right(s)",
+      "items": {
+        "type": "string",
+        "title": "Fundamental right",
+        "enum": [
+          "No",
+          "Right to equality",
+          "Right to freedom",
+          "Right against exploitation",
+          "Right to freedom of religion",
+          "Cultural and educational rights",
+          "Right to constitutional remedies",
+          "Right to education"
+        ]
+      },
+      "required": true
     },
     "decision_in_favor_of": {
       "type": "string",
@@ -466,7 +481,7 @@
         "Accused",
         "Appellant"
       ],
-      "required": "true"
+      "required": true
     },
     "costs_imposed": {
       "type": "string",
@@ -475,7 +490,7 @@
         "Yes",
         "No"
       ],
-      "required": "true"
+      "required": true
     },
     "monetary_amount_claimed": {
       "type": "string",
@@ -496,7 +511,7 @@
         "Rs.50,00,000 and above",
         "Not applicable"
       ],
-      "required": "true"
+      "required": true
     },
     "monetary_amount_granted": {
       "type": "string",
@@ -517,12 +532,12 @@
         "Rs.50,00,000 and above",
         "Not applicable"
       ],
-      "required": "true"
+      "required": true
     },
     "number_of_witnesses_examined": {
       "type": "string",
       "title": "Number of witnesses examined",
-      "required": "true"
+      "required": true
     },
     "did_the_case_have_oral_evidence": {
       "type": "string",
@@ -532,7 +547,7 @@
         "No",
         "Cannot say"
       ],
-      "required": "true"
+      "required": true
     },
     "did_the_case_have_written_evidence": {
       "type": "string",
@@ -542,17 +557,17 @@
         "No",
         "Cannot say"
       ],
-      "required": "true"
+      "required": true
     },
     "number_of_precedents_cited": {
       "type": "string",
       "title": "Number of precedents cited",
-      "required": "true"
+      "required": true
     },
     "ratio_of_quoted_text": {
-      "type": "string",
+      "type": "textarea",
       "title": "Ratio of Quoted Text",
-      "required": "true"
+      "required": true
     },
     "type_of_punishment_given_by_the_court": {
       "type": "string",
@@ -585,6 +600,14 @@
         "Rs.50,00,000 and above",
         "Not applicable"
       ]
+    },
+    "test_item": {
+      "type": "contingentstrings",
+      "title": "Test item",
+      "contingent": {
+        "name": "test_contingent",
+        "title": "Test Contingent"
+      }
     }
   }
 }

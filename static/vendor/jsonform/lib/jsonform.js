@@ -155,7 +155,7 @@ var initializeTabs = function (tabs) {
       return;
     }
 
-    $target = $(this).parents('.tabbable').eq(0).find('> .tab-content > [data-idx=' + targetIdx + ']');
+    $target = $(this).parents('.tabbable').eq(0).find('.tab-content [data-idx=' + targetIdx + ']');
 
     activate($option, $select);
     activate($target, $target.parent());
@@ -184,7 +184,7 @@ var initializeTabs = function (tabs) {
       // do not use .attr() as it sometimes unexplicably fails
       var targetIdx = $(this).find('option:selected').get(0).getAttribute('data-idx') ||
         $(this).find('option:selected').attr('value');
-      var $target = $(this).parents('.tabbable').eq(0).find('> .tab-content > [data-idx=' + targetIdx + ']');
+      var $target = $(this).parents('.tabbable').eq(0).find('.tab-content [data-idx=' + targetIdx + ']');
       enableFields($target, targetIdx);
     });
 
@@ -1442,28 +1442,27 @@ jsonform.util.getObjKey = function (obj, key, ignoreArrays) {
     arrayMatch = reArray.exec(subkey);
     if (arrayMatch) {
       while (true) {
-        if (prop && !_.isArray(innerobj[prop])) return null;
-        innerobj = prop ? innerobj[prop][parseInt(arrayMatch[1])] : innerobj[parseInt(arrayMatch[1])];
+        if (!_.isArray(innerobj[prop])) return null;
+        innerobj = innerobj[prop][parseInt(arrayMatch[1], 10)];
         arrayMatch = reArray.exec(subkey);
         if (!arrayMatch) break;
-        // In the case of multidimensional arrays,
-        // we should not take innerobj[prop][0] anymore,
-        // but innerobj[0] directly
-        prop = null;
       }
-    } else if (ignoreArrays &&
+    }
+    else if (ignoreArrays &&
         !innerobj[prop] &&
         _.isArray(innerobj) &&
         innerobj[0]) {
       innerobj = innerobj[0][prop];
-    } else {
+    }
+    else {
       innerobj = innerobj[prop];
     }
   }
 
   if (ignoreArrays && _.isArray(innerobj) && innerobj[0]) {
     return innerobj[0];
-  } else {
+  }
+  else {
     return innerobj;
   }
 };
