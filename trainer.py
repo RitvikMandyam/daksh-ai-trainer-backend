@@ -41,4 +41,4 @@ def serve_bookmarklet():
 
 
 context = ('/etc/letsencrypt/live/kp.dakshindia.org/cert.pem', '/etc/letsencrypt/live/kp.dakshindia.org/privkey.pem')
-app.run(host='0.0.0.0', port=6900, ssl_context=context)
+app.run(host='0.0.0.0', port=6400, ssl_context=context)
