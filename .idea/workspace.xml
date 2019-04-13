@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e90356e-6f55-40b0-808c-eccd7852408b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fields.json" beforeDir="false" afterPath="$PROJECT_DIR$/fields.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bookmarklet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bookmarklet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bookmarklet.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/bookmarklet.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,13 +59,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="217">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/bookmarklet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="116" selection-start-column="116" selection-end-column="116" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,7 +128,6 @@
         <option value="$PROJECT_DIR$/fields.json.py" />
         <option value="$PROJECT_DIR$/static/html/view-records.html" />
         <option value="$PROJECT_DIR$/templates/view-records.html" />
-        <option value="$PROJECT_DIR$/static/bookmarklet.js" />
         <option value="$USER_HOME$/WebstormProjects/daksh-portal/proxy/index.py" />
         <option value="$PROJECT_DIR$/static/datepicker.html" />
         <option value="$PROJECT_DIR$/index.py" />
@@ -125,6 +135,7 @@
         <option value="$PROJECT_DIR$/templates/bookmarklet.html" />
         <option value="$PROJECT_DIR$/fields.json" />
         <option value="$PROJECT_DIR$/trainer.py" />
+        <option value="$PROJECT_DIR$/static/bookmarklet.js" />
       </list>
     </option>
   </component>
@@ -317,7 +328,7 @@
       <workItem from="1554951429892" duration="5907000" />
       <workItem from="1555006139620" duration="1128000" />
       <workItem from="1555086418128" duration="14000" />
-      <workItem from="1555182521545" duration="163000" />
+      <workItem from="1555182521545" duration="403000" />
     </task>
     <task id="LOCAL-00001" summary="Added all the things!">
       <created>1552432763842</created>
@@ -326,11 +337,32 @@
       <option name="project" value="LOCAL" />
       <updated>1552432763842</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Set up SSL, made backend host-agnostic">
+      <created>1555182720816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555182720816</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changed port to 6400">
+      <created>1555182814712</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555182814712</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Made bookmarklet use new port">
+      <created>1555182850729</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555182850729</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39226000" />
+    <option name="totallyTimeSpent" value="39466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,12 +377,12 @@
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47496206" visible="true" weight="0.31509122" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.47496206" visible="true" weight="0.31509122" />
       <window_info id="Structure" order="1" sideWeight="0.52503794" side_tool="true" visible="true" weight="0.31509122" />
       <window_info id="Favorites" order="2" sideWeight="0.50052136" side_tool="true" weight="0.2498618" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3282365" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3282365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -373,7 +405,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added all the things!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added all the things!" />
+    <MESSAGE value="Set up SSL, made backend host-agnostic" />
+    <MESSAGE value="Changed port to 6400" />
+    <MESSAGE value="Made bookmarklet use new port" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made bookmarklet use new port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -394,13 +429,6 @@
     <entry file="file://$USER_HOME$/anaconda3/envs/ml35/lib/python3.5/site-packages/flask/app.py" />
     <entry file="file://$PROJECT_DIR$/static/html/static/html/view-records.html" />
     <entry file="file://$PROJECT_DIR$/static/html/html/view-records.html" />
-    <entry file="file://$PROJECT_DIR$/static/bookmarklet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="87" selection-start-column="87" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -466,10 +494,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="217">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/bookmarklet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="116" selection-start-column="116" selection-end-column="116" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
