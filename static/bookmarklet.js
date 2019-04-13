@@ -1,1 +1,1 @@
-javascript:(function(){var url=document.location.href;$(document.body).append('<iframe src="http://127.0.0.1:6900/bookmarklet" style="width: 23%; height: 100%; position: fixed; top: 0; right: 0; border: none; outline: none; border-left: 1px solid black;"></iframe>')}())
+javascript:(function(){var url=document.location.href;$(document.body).append('<iframe src="http://127.0.0.1:6400/bookmarklet" style="width: 23%; height: 100%; position: fixed; top: 0; right: 0; border: none; outline: none; border-left: 1px solid black;"></iframe>')}())
