@@ -600,14 +600,6 @@
         "Rs.50,00,000 and above",
         "Not applicable"
       ]
-    },
-    "test_item": {
-      "type": "contingentstrings",
-      "title": "Test item",
-      "contingent": {
-        "name": "test_contingent",
-        "title": "Test Contingent"
-      }
     }
   }
 }

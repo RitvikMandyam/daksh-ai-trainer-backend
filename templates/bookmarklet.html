@@ -13,22 +13,22 @@
 <body>
 <form></form>
 <div id="res" class="alert"></div>
-<script src="../static/vendor/jsonform/deps/jquery.min.js"></script>
-<script src="../static/vendor/jsonform/deps/underscore.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/jsv.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/jquery-ui.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/bootstrap-dropdown.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/bootstrap-wysihtml5.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/spectrum.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/ace.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-json.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-html.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-css.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-javascript.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-less.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/ace/mode-markdown.js"></script>
-<script src="../static/vendor/jsonform/deps/opt/jquery.transloadit2.js"></script>
-<script src="../static/vendor/jsonform/lib/jsonform.js"></script>
+<script src="/static/vendor/jsonform/deps/jquery.min.js"></script>
+<script src="/static/vendor/jsonform/deps/underscore.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/jsv.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/jquery-ui.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/bootstrap-dropdown.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/bootstrap-wysihtml5.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/spectrum.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/ace.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-json.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-html.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-css.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-javascript.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-less.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/ace/mode-markdown.js"></script>
+<script src="/static/vendor/jsonform/deps/opt/jquery.transloadit2.js"></script>
+<script src="/static/vendor/jsonform/lib/jsonform.js"></script>
 
 <script type="text/javascript">
     JSONForm.fieldTypes['contingentstrings'] = {
@@ -40,7 +40,7 @@
         }
     };
 
-    $.getJSON('http://localhost:6900', function (data) {
+    $.getJSON('/', function (data) {
         $('form').jsonForm({
             schema: data['schema'],
             form:
@@ -68,7 +68,7 @@
                     alert('There are invalid values in the form. Please ensure that the date fields actually contain dates.')
                 } else {
                     values.origin_url = window.location.href;
-                    $.post('http://localhost:6900', 'data=' + encodeURIComponent(JSON.stringify(values)), function (data) {
+                    $.post('/', 'data=' + encodeURIComponent(JSON.stringify(values)), function (data) {
                         console.log(data);
                     }, 'json')
                 }
